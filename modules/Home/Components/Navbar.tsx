@@ -5,6 +5,7 @@ import { SignInButton, SignOutButton, SignUpButton, UserButton } from "@clerk/ne
 import { SignedIn, SignedOut } from "@clerk/nextjs";
 import Image from "next/image";
 import { ModeToggle } from "@/components/ModeToggle";
+import UserControl from "./user-control";
 const Navbar = () => {
   return (
     <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-5xl px-4">
@@ -17,10 +18,10 @@ const Navbar = () => {
             </span>
           </Link>
           <div className="flex gap-4 items-center"  >
-
-          <ModeToggle />
+                 <ModeToggle/>
+          <UserControl/>
               <SignedIn>
-           <UserButton showName/>
+        
 
               </SignedIn>
 
