@@ -44,3 +44,26 @@ export const onBoarduser = async () => {
     };
   }
 };
+
+export const getCurrentUserName = async () => {
+  const user = await currentUser();
+
+  if (!user) {
+    return null; // or throw an error if you want to enforce login
+  }
+
+  const currentusername = await db.user.findUnique({
+    where: {
+      clerkid: user.id, // user?.id is already checked above
+    },
+    select: {
+      username: true,
+      bio: true,
+    },
+  });
+
+  return currentusername;
+};
+
+
+
